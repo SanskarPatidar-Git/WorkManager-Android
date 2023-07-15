@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.di.workmanager'
+    namespace 'com.task.workmanager'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.di.workmanager"
+        applicationId "com.task.workmanager"
         minSdk 24
         targetSdk 33
         versionCode 1
