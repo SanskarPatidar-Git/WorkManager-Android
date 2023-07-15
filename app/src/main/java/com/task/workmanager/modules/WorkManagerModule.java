@@ -28,10 +28,4 @@ public class WorkManagerModule {
         return WorkManager.getInstance(context);
     }
 
-    @Named("request_without_constraints")
-    @Provides
-    public WorkRequest getOneTimeWorkRequest(){
-        return new OneTimeWorkRequest.Builder(MyBackgroundTask.class).build();
-    }
-
 }

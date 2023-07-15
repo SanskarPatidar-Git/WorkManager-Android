@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.work.WorkInfo;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
@@ -25,6 +26,10 @@ public class MyBackgroundTask extends Worker {
     @NonNull
     @Override
     public Result doWork() {
+
+        String imageUriInput = getInputData().getString("Number"); //get the data which was passed to WorkRequest as shown in WorkActivityModule.
+        Log.i(TAG, "doWork: Number as input data -> "+imageUriInput);
+
         Log.i(TAG, "doWork: "+" Executing........");
         return Result.success(); //According to your output you can return the result.
     }
