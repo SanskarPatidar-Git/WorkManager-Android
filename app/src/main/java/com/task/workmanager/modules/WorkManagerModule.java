@@ -1,11 +1,15 @@
-package com.task.workmanager;
+package com.task.workmanager.modules;
 
 import android.content.Context;
 
+import androidx.work.Constraints;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
+import com.task.workmanager.MyBackgroundTask;
+
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -23,8 +27,11 @@ public class WorkManagerModule {
     public WorkManager getWorkManager(@ApplicationContext Context context){
         return WorkManager.getInstance(context);
     }
+
+    @Named("request_without_constraints")
     @Provides
     public WorkRequest getOneTimeWorkRequest(){
         return new OneTimeWorkRequest.Builder(MyBackgroundTask.class).build();
     }
+
 }
