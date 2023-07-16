@@ -16,7 +16,6 @@ import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
-import dagger.assisted.Assisted;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ActivityComponent;
 
@@ -27,7 +26,7 @@ public class WorkActivityModule {
 
     @Named("request_without_constraints")
     @Provides
-    public WorkRequest getOneTimeWorkRequest(){
+    public WorkRequest getOneTimeWorkRequest() {
         return new OneTimeWorkRequest.Builder(MyBackgroundTask.class)
                 .build();
     }
@@ -54,7 +53,6 @@ public class WorkActivityModule {
     }
 
 
-
     /*
     Request Input data
     when we want some extra data to do our work we have to use setInputData() to request later the
@@ -64,8 +62,8 @@ public class WorkActivityModule {
     getData -> in doWork() we need to get that data by using getInputData().getString("Number");
      */
     @Provides
-    public Data getInputData(){
-        return new Data.Builder().putString("Number","9090909090").build();
+    public Data getInputData() {
+        return new Data.Builder().putString("Number", "9090909090").build();
     }
 
     @Named("request_input_data")
@@ -75,7 +73,6 @@ public class WorkActivityModule {
                 .setInputData(data)
                 .build();
     }
-
 
 
     /*
@@ -89,7 +86,7 @@ public class WorkActivityModule {
      */
     @Named("request_backup_policy")
     @Provides
-    public WorkRequest getOneTimeWorkRequestWithBackupPolicy () {
+    public WorkRequest getOneTimeWorkRequestWithBackupPolicy() {
         return new OneTimeWorkRequest.Builder(MyBackgroundTask.class)
                 .setBackoffCriteria(BackoffPolicy.LINEAR, OneTimeWorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
                 .build();
@@ -107,9 +104,10 @@ public class WorkActivityModule {
      */
     @Named("periodic_work_request")
     @Provides
-    public WorkRequest getPeriodicWorkRequest(){
-        return new PeriodicWorkRequest.Builder(MyBackgroundTask.class,15,TimeUnit.MINUTES).build();
+    public WorkRequest getPeriodicWorkRequest() {
+        return new PeriodicWorkRequest.Builder(MyBackgroundTask.class, 15, TimeUnit.MINUTES).build();
     }
+
 }
 
 /*

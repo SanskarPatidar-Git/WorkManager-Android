@@ -1,5 +1,6 @@
 package com.task.workmanager.modules;
 
+import android.app.NotificationManager;
 import android.content.Context;
 
 import androidx.work.Constraints;
@@ -15,6 +16,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ActivityContext;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 

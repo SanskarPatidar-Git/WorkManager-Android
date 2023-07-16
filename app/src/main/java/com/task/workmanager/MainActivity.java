@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     WorkRequest workRequestWithInputData;
 
-
     @Named("periodic_work_request")
     @Inject
     WorkRequest workRequestPeriodic;
+
 
      @Inject
      WorkManager workManager;
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Periodic work request
         workManager.enqueue(workRequestPeriodic);
+
     }
 }
 
